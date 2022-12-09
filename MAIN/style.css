@@ -1,0 +1,44 @@
+
+.word {
+    font-size: 40px;
+    font-weight: bold;
+}
+.box {
+    width: 1000px;
+    height: 200px;
+    background-color: beige;
+    display: flex;
+}
+.box:first-child{
+    margin-bottom: 20px;
+    /* display: flex; */
+}
+.card {
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: orange;
+    margin-right: 20px;
+}
+.card:last-child {
+    margin-right: 0;
+}
+
+
+
+
+
+
+
+
+.draggingCard {
+    border-color: red;
+}
+.overCard {
+    background-color: orange;
+}
+.overBox {
+    background-color: cyan;
+}
