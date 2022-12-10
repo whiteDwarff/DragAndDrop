@@ -55,6 +55,7 @@ function 카드를놓았음(ev) {
 }
 
 
+
 //============================================================
 //배열 순서 섞기
 function shuffle(array) {
@@ -89,7 +90,6 @@ window.onload = function() {
     문제추가()
     카드추가()
     
-    
     let card = document.querySelectorAll('.card');
     for(let cards of card) {
         cards.addEventListener('dragstart',드래깅시작);
@@ -105,6 +105,9 @@ window.onload = function() {
         box.addEventListener('dragleave', 박스위에서벗어남);
         box.addEventListener('drop', 카드를놓았음);
     }
+
+    한글버전();
+    카드추가();
 
 
 
@@ -133,5 +136,4 @@ window.onload = function() {
 
 
     }
-    
 }
