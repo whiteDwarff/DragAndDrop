@@ -49,6 +49,7 @@ button{
 
 
 .draggingCard {
+    border: 1px solid;
     border-color: red;
 }
 .overCard {
