@@ -84,14 +84,14 @@ function 카드추가() {
 
 
 //넥스트 버튼 기능
-function nextBtnClick(){
+function nextBtnClick(ev){
     //지문 수정
     let p = document.getElementsByClassName('word')[0];
     songNo++;
 
     if(songNo >= song.bear.length){
         alert('This is the last question!');
-        songNo--;
+        songNo = 0;
     }
 
     p.innerHTML = song.bear[songNo].kor;
