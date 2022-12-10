@@ -73,10 +73,9 @@ function 카드추가() {
     shuffle(wordArray);
     let box = document.querySelector('.box');
     let cardHTML = "";
-    let count = 1;
 
     for(let word of wordArray) {
-        cardHTML += `<div number="${count++}" draggable="true" class="card">
+        cardHTML += `<div draggable="true" class="card">
         ${word}</div>`
     }
 
@@ -84,8 +83,39 @@ function 카드추가() {
 }
 
 
+//넥스트 버튼 기능
+function nextBtnClick(){
+    //지문 수정
+    let p = document.getElementsByClassName('word')[0];
+    songNo++;
+
+    if(songNo >= song.bear.length){
+        alert('This is the last question!');
+        songNo--;
+    }
+
+    p.innerHTML = song.bear[songNo].kor;
+
+    //영어 카드 수정
+    let wordArray = song.bear[songNo].eng.split(" ");
+    shuffle(wordArray);
+    let box = document.querySelector('.box');
+    let cardHTML = "";
+
+    for(let word of wordArray) {
+        cardHTML += `<div draggable="true" class="card">
+        ${word}</div>`
+    }
+
+    box.innerHTML = cardHTML;
+
+    console.log(songNo);
+    console.log(song.bear.length);
+
+}
 
 
+//실행
 window.onload = function() {
     문제추가()
     카드추가()
@@ -106,34 +136,10 @@ window.onload = function() {
         box.addEventListener('drop', 카드를놓았음);
     }
 
-    한글버전();
-    카드추가();
-
 
 
     let nextBtn = document.querySelector('#nextBtn');
     nextBtn.addEventListener('click', nextBtnClick);
 
-    function nextBtnClick(){
-        let p = document.getElementsByClassName('word')[0];
-        songNo++;
-        p.innerHTML = song.bear[songNo].kor;
-
-        //영어 박스
-
-        let wordArray = song.bear[songNo].eng.split(" ");
-        shuffle(wordArray);
-        let box = document.querySelector('.box');
-        let cardHTML = "";
-        let count = 1;
-
-        for(let word of wordArray) {
-            cardHTML += `<div oo="${count++}" draggable="true" class="card">
-            ${word}</div>`
-        }
-
-        box.innerHTML = cardHTML;
-
-
-    }
+    console.log(song.bear.length);
 }
