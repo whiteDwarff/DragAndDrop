@@ -1,7 +1,8 @@
-
-
 let draggingCard = null;
 let dragOverCard = null;
+let songNo = 0;
+
+const NextBtn = document.getElementById('nextBtn');
 
 
 // 움직이는 카드가 ~~
@@ -54,29 +55,39 @@ function 카드를놓았음(ev) {
 }
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
-
 ////////////////////////////////////////////////////////////////
-
 ////////////////////////////////////////////////////////////////
 
 
 
 
 function 한글버전() {
-    let count = 0;
     let p = document.getElementsByClassName('word')[0];
-    let word = song.bear[count].kor;
-    p.innerHTML = word;
-
-    $('#nextBtn').on('click',function(){
-        // p.innerHTML = '';
-        count++;
-        $(word + `= song.bear[`+count+`].kor`);
-    });
+    //let word = song.bear[songNo].kor;
+    p.innerHTML = song.bear[songNo].kor;
+    
 }
 
+
+$('#nextBtn').click(function(){
+    let p = document.getElementsByClassName('word')[0];
+    songNo++;
+    p.innerHTML = song.bear[songNo].kor;
+});
+
+
+
+
+
+//배열 섞기
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+  }
+
 function 카드추가(str) {
-    let wordArray = song.bear[0].eng.split(" ");
+
+    let wordArray = song.bear[songNo].eng.split(" ");
+    shuffle(wordArray);
     let box = document.querySelector('.box');
     let cardHTML = "";
     let count = 1;
@@ -124,6 +135,12 @@ window.onload = function() {
         box.addEventListener('drop', 카드를놓았음);
     }
 
+
+
+    NextBtn.addEventListener('click', ccc);
+    function ccc(){
+        console.log("클릭함.");
+    }
 
 }
 
