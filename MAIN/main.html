@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style> @import url('https://fonts.googleapis.com/css2?family=Jua&family=Single+Day&family=Sunflower:wght@700&display=swap'); </style>
     <link rel="stylesheet" href="style.css">
-    <script src="/jquery.js"></script>
     <script src="song.js"></script>
-    <script src="app.js"></script>
 </head>
 <body>
+    <div class="wrap">
     <header>
         <nav>
             <h1>곰세마리</h1>
@@ -22,19 +22,21 @@
     </header>
     <section>
         <article>
-            <!-- <embed class="avi" src="https://www.youtube.com/embed/9DG0WdjaEGY" title="YouTube video player" width="960" height="720"> -->
-        </article>
-        <article>
-            <p class="word"></p>
-            <h3>Choose!!</h3>
-            <div class="box"></div>
-            <h3>Result!!</h3>
-            <div class="box"> </div>
-        </article>
-        <button id="restartbtn">Restart Game</button>
-        <button id="nextBtn">next Step</button>
-    </section>
-
-
+            <embed class="avi" src="https://www.youtube.com/embed/9DG0WdjaEGY" title="YouTube video player" width="960" height="720">
+            </article>
+            <article>
+                <p class="word"></p>
+                <h3>Choose from here!!</h3>
+                <div class="box"></div>
+                <h3>Plays your anwser in order!!</h3>
+                <div class="box"> </div>
+            </article>
+            <button id="resultBtn">Restart Game</button>
+            <button id="nextBtn">next Step</button>
+        </section>
+        
+        
+        <script src="app.js"></script>
+    </div>
 </body>
 </html>

@@ -2,7 +2,7 @@ let draggingCard = null;
 let dragOverCard = null;
 let songNo = 0;
 
-const NextBtn = document.getElementById('nextBtn');
+const NEXTBTN = document.getElementById('nextBtn');
 
 
 // 움직이는 카드가 ~~
@@ -54,37 +54,13 @@ function 카드를놓았음(ev) {
     this.classList.remove('overBox');
 }
 ////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////
-
-
-
 
 function 한글버전() {
     let p = document.getElementsByClassName('word')[0];
-    //let word = song.bear[songNo].kor;
     p.innerHTML = song.bear[songNo].kor;
     
 }
-
-
-$('#nextBtn').click(function(){
-    let p = document.getElementsByClassName('word')[0];
-    songNo++;
-    p.innerHTML = song.bear[songNo].kor;
-});
-
-
-
-
-
-//배열 섞기
-function shuffle(array) {
-    array.sort(() => Math.random() - 0.5);
-  }
-
-function 카드추가(str) {
+function 카드추가() {
 
     let wordArray = song.bear[songNo].eng.split(" ");
     shuffle(wordArray);
@@ -99,26 +75,15 @@ function 카드추가(str) {
 
     box.innerHTML = cardHTML;
 }
-// function 카드추가(str) {
-//     let wordArray = str.split(" ");
-//     let box = document.querySelector('.box');
-//     let cardHTML = "";
-//     let count = 1;
+//카드 섞기
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
 
-//     for(let word of wordArray) {
-//         cardHTML += `<div oo="${count++}" draggable="true" class="card">
-//         ${word}</div>`
-//     }
+}
 
-//     box.innerHTML = cardHTML;
-// }
+////////////////////////////////////////////////////////
 
-
-window.onload = function() {
-    한글버전()
-    카드추가()
-    
-    
+window.onload = function(){
     let card = document.querySelectorAll('.card');
     for(let cards of card) {
         cards.addEventListener('dragstart',드래깅시작);
@@ -135,12 +100,15 @@ window.onload = function() {
         box.addEventListener('drop', 카드를놓았음);
     }
 
+    한글버전();
+    카드추가();
 
 
-    NextBtn.addEventListener('click', ccc);
+    NEXTBTN.addEventListener('click', ccc);
     function ccc(){
-        console.log("클릭함.");
+        songNo++;
+        console.log('click');
     }
 
-}
 
+}
