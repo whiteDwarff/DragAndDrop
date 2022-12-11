@@ -18,11 +18,11 @@ section {
 .box {
     height: 50px;
     background-color: white;
-    display: flex;
     padding: 40px;
-    justify-content: space-between;
+    justify-content: center;
     border-radius: 40px;
     margin-bottom: 40px;
+    display: flex;
 }
 .card {
     width: 100px;
@@ -37,10 +37,18 @@ section {
 .card:last-child {
     margin-right: 0;
 }
+
 button{
     padding: 20px;
     border-radius: 10px;
+    cursor: pointer;
+    animation-duration: .2s;
 }
+button:active{
+    box-shadow: inset -.3rem -.1rem 1.4rem  #FBFBFB,
+    inset .3rem .4rem .8rem #BEC5D0;
+}
+
 
 
 

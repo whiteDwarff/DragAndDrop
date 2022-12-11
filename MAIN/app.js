@@ -1,6 +1,7 @@
 let draggingCard = null;
 let dragOverCard = null;
 let songNo = 0;
+//songNo = json.parse(localStorage.getItem("songNo"));
 
 
 
@@ -85,41 +86,53 @@ function 카드추가() {
 
 //넥스트 버튼 기능
 function nextBtnClick(){
-    //지문 수정
-    let p = document.getElementsByClassName('word')[0];
-    songNo++;
+    answerCheck();
 
+    //현재 문항이 모든 문제수를 넘어가게되면..
     if(songNo >= song.bear.length){
         alert('This is the last question!');
         songNo--;
     }
-
-    p.innerHTML = song.bear[songNo].kor;
-
-    //영어 카드 수정
-    let wordArray = song.bear[songNo].eng.split(" ");
-    shuffle(wordArray);
-    let box = document.querySelector('.box');
-    let cardHTML = "";
-
-    for(let word of wordArray) {
-        cardHTML += `<div draggable="true" class="card">
-        ${word}</div>`
-    }
-
-    box.innerHTML = cardHTML;
-
-    console.log(songNo);
-    console.log(song.bear.length);
-
+    gameSetting();
 }
 
+//다시시작 버튼 기능
+function resultBtnClick(){
+    songNo = 0;
+    gameSetting();
+}
 
-//실행
-window.onload = function() {
-    문제추가()
-    카드추가()
+//정답 체크하는 함수
+function answerCheck() {
+    cardText = document.querySelectorAll('.card');
     
+    let myAnswer = '';
+    for(let cardTexts of cardText){
+        myAnswer += cardTexts.innerText;
+    }
+    
+    let answerArray = song.bear[songNo].eng.split(" ");
+    let answer = '';
+    for(let answerArrays of answerArray){
+        answer += answerArrays;
+    }
+
+    if(myAnswer == answer){
+        console.log("정답입니다.");
+        answerBox.innerHTML = '';
+        songNo ++;
+        localStorage.setItem("songNo", JSON.stringify(songNo));
+    }
+    else{ console.log("틀렸습니다!");
+    answerBox.innerHTML = '';
+    localStorage.setItem("songNo", JSON.stringify(songNo));
+}
+    console.log(answer);
+    console.log(myAnswer);
+}
+
+//card에 드래그 앤 드롭 붙혀주는 함수
+function nextGameCard(){
     let card = document.querySelectorAll('.card');
     for(let cards of card) {
         cards.addEventListener('dragstart',드래깅시작);
@@ -128,7 +141,6 @@ window.onload = function() {
         cards.addEventListener('dragleave',카드위에서벗어남);
     }
 
-
     let boxs = document.querySelectorAll('.box');
     for(let box of boxs){
         box.addEventListener('dragover', 박스위에올라감);
@@ -136,10 +148,40 @@ window.onload = function() {
         box.addEventListener('drop', 카드를놓았음);
     }
 
+}
 
+//현재 문항 수 / 전체 문항 수
+function remain(){
+    let remainText = document.querySelector('.remain');
+    let present = songNo + 1;
+    let entire = song.bear.length;
+    remainText.innerText = `${present}/${entire}`;
+}
+
+
+function gameSetting(){
+    문제추가();
+    카드추가();
+    nextGameCard();
+    remain();
+}
+
+
+
+//실행
+window.onload = function() {
+    let answerBox = document.getElementById('answerBox');
+    
+    // if(JSON.parse(localStorage.songNo)){
+    //     songNo = JSON.parse(localStorage.songNo);
+    // }
+    // songNo = JSON.parse(localStorage.songNo);
+    gameSetting();
 
     let nextBtn = document.querySelector('#nextBtn');
     nextBtn.addEventListener('click', nextBtnClick);
 
-    console.log(song.bear.length);
+    let resultBtn = document.querySelector('#resultBtn');
+    resultBtn.addEventListener('click', resultBtnClick);
+
 }
