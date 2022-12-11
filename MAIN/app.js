@@ -91,7 +91,7 @@ function nextBtnClick(){
     //현재 문항이 모든 문제수를 넘어가게되면..
     if(songNo >= song.bear.length){
         alert('This is the last question!');
-        songNo--;
+        songNo = 0;
     }
     gameSetting();
 }
