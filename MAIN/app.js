@@ -166,22 +166,35 @@ function gameSetting(){
     remain();
 }
 
+//진행하던 게임이 있는지 확인
+function songNoChoice(){
+    if(typeof localStorage.songNo == "undefined"){
+        songNo = 0;
+    }
+    else if(localStorage.songNo >= 1){
+        if(confirm("진행중인 게임을 이어서 하시겠습니까?")){
+            songNo = JSON.parse(localStorage.songNo);
+        }
+        else {
+            songNo = 0;
+        }
+    }
+}
+
 
 
 //실행
 window.onload = function() {
     let answerBox = document.getElementById('answerBox');
-    
-    // if(JSON.parse(localStorage.songNo)){
-    //     songNo = JSON.parse(localStorage.songNo);
-    // }
-    // songNo = JSON.parse(localStorage.songNo);
+        
+
+    songNoChoice();
     gameSetting();
+
 
     let nextBtn = document.querySelector('#nextBtn');
     nextBtn.addEventListener('click', nextBtnClick);
-
+    
     let resultBtn = document.querySelector('#resultBtn');
-    resultBtn.addEventListener('click', resultBtnClick);
-
+    resultBtn.addEventListener('click', resultBtnClick);  
 }

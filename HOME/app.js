@@ -4,7 +4,6 @@ function moveBear() {
 }
 
 window.onload = function() {
-
     // $('section').on('click',moveBear);
     section = document.getElementsByTagName('section')[0];
     section.addEventListener('mouseover',moveBear);
