@@ -1,6 +1,7 @@
 let draggingCard = null;
 let dragOverCard = null;
 let songNo = 0;
+let count = 1;
 let bearAvi = "https://www.youtube.com/embed/9DG0WdjaEGY";
 
 
@@ -192,7 +193,24 @@ function aviSetTime(){
     $(".avi").attr("src", `${bearAvi}?start=${song.bear[songNo].time}`);
 }
 
+//----------------------------------------------------------------
+function sideVisibleEvent() {
+    let songList = document.getElementsByClassName('songList')[0];
+    let span = document.querySelector('aside span');
 
+    if(count) {
+        span.innerText = 'Play List 닫기'
+        count--;
+    } else {
+        span.innerText = 'Play List 열기'
+        count++;
+    }
+
+    songList.classList.toggle('toggleEvent')
+    this.classList.toggle('songBtnEvent');
+}
+
+//----------------------------------------------------------------
 
 //실행
 window.onload = function() {
@@ -208,10 +226,13 @@ window.onload = function() {
     let resultBtn = document.querySelector('#resultBtn');
     resultBtn.addEventListener('click', resultBtnClick);  
     
-    let answerView = document.getElementById('answerView');    
-    answerView.addEventListener('click', answerViewText);
+    // let answerView = document.getElementById('answerView');    
+    // answerView.addEventListener('click', answerViewText);
 
     let aviTimeBtn = document.getElementById('aviTimeBtn');
     aviTimeBtn.addEventListener('click', aviSetTime);
+
+    let songBtn = document.getElementById('songBtn');
+    songBtn.addEventListener('click', sideVisibleEvent);
 
 }

@@ -11,7 +11,6 @@
     <script src="app.js"></script>
 </head>
 <body>
-    <img src="/IMG/bear.jpg" alt="">
     <p class="remain">남은문항수</p>
     <header>
         <nav>
@@ -31,36 +30,31 @@
                 <h3>Choose from here!!</h3>
                 <div class="box"></div>
                 <h3>Plays your answer in order!!</h3>
-                <p class="answerView">정답 표시 </p>
-                <div class="box" id="answerBox"> </div>
+                <button id="aviTimeBtn">듣기</button>
+                <div class="box" id="answerBox"></div>
             </article>
             <button id="resultBtn">Restart Game</button>
             <button id="nextBtn">next Step</button>
-    </section>
-    <aside>
-        <div id="side">
-            <img src="../IMG/song.png" alt=""" width="50px">
-        </div>
-        <ul class="songList">
-            <li>
-                <a href="">
-                    <img src="../IMG/bear.jpg" width="50px" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <img src="../IMG/older.jpg" width="50px" alt="">
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    3
-                </a>
-            </li>
-        </ul>
-    </aside>
-            <button id="answerView">answerView</button>
-            <button id="aviTimeBtn">듣기</button>
+
+
+            <aside>
+                <span>Play List 열기</span>
+                <button id="songBtn"><img src="../IMG/song1.png" alt="" width="50px"></button>
+                <ul class="songList hidden">
+                    <li>
+                        <a href="">
+                            <img src="../IMG/bear.jpg" width="50px" alt="">
+                            <p>곰세마리</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="../IMG/older.jpg" width="100px" alt="">
+                            <p>Order</p>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
         </section>
     </div>
 </body>
