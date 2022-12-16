@@ -1,7 +1,7 @@
 let draggingCard = null;
 let dragOverCard = null;
 let songNo = 0;
-//songNo = json.parse(localStorage.getItem("songNo"));
+let bearAvi = "https://www.youtube.com/embed/9DG0WdjaEGY";
 
 
 
@@ -94,12 +94,16 @@ function nextBtnClick(){
         songNo = 0;
     }
     gameSetting();
+    let answerViewText = document.querySelector('.answerView');
+    answerViewText.innerText = "정답 표시";
 }
 
 //다시시작 버튼 기능
 function resultBtnClick(){
     songNo = 0;
     gameSetting();
+    let answerViewText = document.querySelector('.answerView');
+    answerViewText.innerText = "정답 표시";
 }
 
 //정답 체크하는 함수
@@ -127,8 +131,6 @@ function answerCheck() {
     answerBox.innerHTML = '';
     localStorage.setItem("songNo", JSON.stringify(songNo));
 }
-    console.log(answer);
-    console.log(myAnswer);
 }
 
 //card에 드래그 앤 드롭 붙혀주는 함수
@@ -181,20 +183,35 @@ function songNoChoice(){
     }
 }
 
+function answerViewText(){
+    let answerViewText = document.querySelector('.answerView');
+    answerViewText.innerText = song.bear[songNo].eng;
+}
+
+function aviSetTime(){
+    $(".avi").attr("src", `${bearAvi}?start=${song.bear[songNo].time}`);
+}
+
 
 
 //실행
 window.onload = function() {
     let answerBox = document.getElementById('answerBox');
-        
-
+    
     songNoChoice();
     gameSetting();
-
-
+    
+    
     let nextBtn = document.querySelector('#nextBtn');
     nextBtn.addEventListener('click', nextBtnClick);
     
     let resultBtn = document.querySelector('#resultBtn');
     resultBtn.addEventListener('click', resultBtnClick);  
+    
+    let answerView = document.getElementById('answerView');    
+    answerView.addEventListener('click', answerViewText);
+
+    let aviTimeBtn = document.getElementById('aviTimeBtn');
+    aviTimeBtn.addEventListener('click', aviSetTime);
+
 }
