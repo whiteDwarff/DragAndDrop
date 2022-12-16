@@ -93,18 +93,24 @@ button:active{
     inset .3rem .4rem .8rem #BEC5D0;
 }
 
-
-#aviTimeBtn {   /* 듣기 버튼*/
-    position: relative;;
-    top: -88px;
-    right: -250px;
-    border-radius: 50%;
-    background-color: rgb(255, 61, 61);
-    border: 2px solid orange;
-    color: white;
+.plays {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px 0;
 }
-#answerBox {
-    margin-top: -60px;
+.remain {
+    font-size: 20px;
+    color: red;
+}
+.plays h3 {
+    margin: 0px 100px;
+}
+#aviTimeBtn {
+    border-radius: 50%;
+    background-color: #C5C5E6;
+    color: white;
+    position: relative;
+    bottom: 15px;
 }
 /* ////////////////////////////////////////////////////// aside */
 aside {
@@ -181,9 +187,6 @@ aside {
     opacity: 1;
     transition: 1s;
 }
-/* .songBtnEvent {
-    width: 100px;
-    height: 100px;
-    border-radius: none;
-    background-color: aqua;
-} */
+
+
+
