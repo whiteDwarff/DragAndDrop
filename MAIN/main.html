@@ -14,7 +14,9 @@
     
     <header>
         <nav>
-            <h1>곰세마리</h1>
+            <h1>곰세마리
+                <img src="../IMG/foot.png" alt="" width="30px">
+            </h1>
             <ul>
                 <li><a href="#">진행방법</a></li>
                 <li><a href="#">팀원소개</a></li>
@@ -26,19 +28,26 @@
             <embed class="avi" src="https://www.youtube.com/embed/9DG0WdjaEGY" title="YouTube video player" width="960" height="720">
             </article>
             <article>
-                <p class="word"></p>
+                <div class="wordZone">
+                    <img src="../IMG/pngBear.png" alt="">
+                    <p class="word"></p>
+                    <img src="../IMG/pngBear.png" alt="">
+                </div> <!-- wordZone-->
+
                 <h3>Choose from here!!</h3>
-                <div class="box"></div>
+
+                <div class="box"></div> <!--card를 담는 box-->
+
                 <div class="plays">
                     <p class="remain">남은문항수</p>
                     <h3>Plays your answer in order!!</h3>
                     <button id="aviTimeBtn">듣기</button>
-                </div>
-                <div class="box" id="answerBox"></div>
-            </article>
+                </div><!--plays-->
+                <div class="box" id="answerBox"></div> <!-- 정답 box-->
+            </article> <!-- article 2 -->
+
             <button id="resultBtn">Restart Game</button>
             <button id="nextBtn">next Step</button>
-
 
             <aside>
                 <span>Play List 열기</span>

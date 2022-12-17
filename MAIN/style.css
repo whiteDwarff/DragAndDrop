@@ -63,8 +63,19 @@ h3 {
     font-size: 27px;
     margin-bottom: 40px;
 }
+.wordZone {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
+.wordZone img {
+    width: 90px;    
+    position: relative;
+    top: -24px;
+}
+
 .word {   /* 한글 노래 출력하는 태그*/
-    margin: 50px 0;
+    width: 500px;
 }
 .card {
     width: 100px;
@@ -111,6 +122,7 @@ button:active{
     color: white;
     position: relative;
     bottom: 15px;
+    margin-right: 0;
 }
 /* ////////////////////////////////////////////////////// aside */
 aside {
