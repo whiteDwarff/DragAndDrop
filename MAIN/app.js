@@ -210,12 +210,25 @@ function sideVisibleEvent() {
     this.classList.toggle('songBtnEvent');
 }
 
+
+function loginKey(key){
+    let login = document.getElementById('Login');
+    let loginName = document.getElementById('loginName');
+
+    if(key.keyCode == 13){
+        loginName.innerText = login.value;
+
+        console.log(loginName);
+    }
+}
+
 //----------------------------------------------------------------
 
 //실행
 window.onload = function() {
-    let answerBox = document.getElementById('answerBox');
-    
+    let login = document.getElementById('Login');
+    login.addEventListener('keypress', loginKey);
+
     songNoChoice();
     gameSetting();
     
