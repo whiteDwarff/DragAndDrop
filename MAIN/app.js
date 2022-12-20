@@ -201,7 +201,7 @@ function answerViewText(){
 }
 
 function aviSetTime(){
-    $(".avi").attr("src", `${bearAvi}?start=${song.bear[songNo].time}`);
+    $(".avi").attr("src", `${bearAvi}?autoplay=1&mute=1&start=${song.bear[songNo].time}`);
 }
 
 //----------------------------------------------------------------
