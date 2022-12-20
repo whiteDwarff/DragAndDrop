@@ -109,13 +109,17 @@ function resultBtnClick(){
 
 //정답 체크하는 함수
 function answerCheck() {
-    cardText = document.querySelectorAll('.card');
-    
+    cardText = document.querySelectorAll('.card');    
+    let submitWindow = document.getElementsByClassName('submitWindow')[0];
+    let submitImg = document.querySelector('.submitWindow img');
+    let submitSpan = document.querySelector('.submitWindow span');
+    let positionBox = document.getElementsByClassName('positionBox')[0];
     let myAnswer = '';
     for(let cardTexts of cardText){
         myAnswer += cardTexts.innerText;
     }
     
+    let answerBox = document.getElementById('answerBox');
     let answerArray = song.bear[songNo].eng.split(" ");
     let answer = '';
     for(let answerArrays of answerArray){
@@ -123,15 +127,22 @@ function answerCheck() {
     }
 
     if(myAnswer == answer){
-        console.log("정답입니다.");
-        answerBox.innerHTML = '';
+        submitImg.src = `../IMG/o.png`;
+        submitSpan.innerText = '정답입니다!';
+        submitWindow.classList.add('block');
         songNo ++;
         localStorage.setItem("songNo", JSON.stringify(songNo));
+        answerBox.innerHTML = '';
+        positionBox.classList.remove('none');
     }
-    else{ console.log("틀렸습니다!");
-    answerBox.innerHTML = '';
-    localStorage.setItem("songNo", JSON.stringify(songNo));
-}
+    else{ 
+        submitImg.src = `../IMG/x.png`;
+        submitSpan.innerText = '오답입니다!';
+        submitWindow.classList.add('block');
+        answerBox.innerHTML = '';
+        localStorage.setItem("songNo", JSON.stringify(songNo));
+        positionBox.classList.remove('none');
+    }
 }
 
 //card에 드래그 앤 드롭 붙혀주는 함수
@@ -205,11 +216,12 @@ function sideVisibleEvent() {
         span.innerText = 'Play List 열기'
         count++;
     }
-
     songList.classList.toggle('toggleEvent')
     this.classList.toggle('songBtnEvent');
 }
-
+function inputEvent() {
+    this.style.width = "150px";
+}
 //----------------------------------------------------------------
 
 //실행
@@ -235,4 +247,14 @@ window.onload = function() {
     let songBtn = document.getElementById('songBtn');
     songBtn.addEventListener('click', sideVisibleEvent);
 
+    let submitBtn = document.querySelector('.submitWindow button');
+    submitBtn.addEventListener('click', function() {
+        let submitWindow = document.getElementsByClassName('submitWindow')[0];
+        let positionBox = document.getElementsByClassName('positionBox')[0];
+        submitWindow.classList.remove('block');
+        positionBox.classList.add('none');
+    });
+
+    let input = document.querySelector('.inputZone input');
+    input.addEventListener('click', inputEvent);
 }
