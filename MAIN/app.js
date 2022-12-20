@@ -3,6 +3,7 @@ let dragOverCard = null;
 let songNo = 0;
 let count = 1;
 let bearAvi = "https://www.youtube.com/embed/9DG0WdjaEGY";
+let point = 0;
 
 
 
@@ -95,16 +96,12 @@ function nextBtnClick(){
         songNo = 0;
     }
     gameSetting();
-    let answerViewText = document.querySelector('.answerView');
-    answerViewText.innerText = "정답 표시";
 }
 
 //다시시작 버튼 기능
 function resultBtnClick(){
     songNo = 0;
     gameSetting();
-    let answerViewText = document.querySelector('.answerView');
-    answerViewText.innerText = "정답 표시";
 }
 
 //정답 체크하는 함수
@@ -134,6 +131,9 @@ function answerCheck() {
         localStorage.setItem("songNo", JSON.stringify(songNo));
         answerBox.innerHTML = '';
         positionBox.classList.remove('none');
+
+        point += 10;
+        loginID.innerText = `${nameInput.value}님의 점수는 : ${point}`;
     }
     else{ 
         submitImg.src = `../IMG/x.png`;
@@ -227,21 +227,59 @@ function inputEvent() {
 
 
 function loginKey(key){
-    let login = document.getElementById('Login');
-    let loginName = document.getElementById('loginName');
+    let nameInput = document.getElementById('nameInput');
+    let loginID = document.getElementById('loginID');
+    let inputZone = document.querySelector('.inputZone');
 
     if(key.keyCode == 13){
-        loginName.innerText = login.value;
+        loginID.innerText = `${nameInput.value}님의 점수는 : ${point}`;
+        nameInput.style.display = 'none';
 
-        console.log(loginName);
+        let logoutBtn = document.createElement('button');
+        logoutBtn.innerHTML = 'X';
+        logoutBtn.setAttribute("id", "logoutID");
+        inputZone.appendChild(logoutBtn);
+        
+        localPoint = nameInput.value;
+        localStorage.setItem(nameInput.value, JSON.stringify(point));
+
+        logoutBtn.addEventListener('click',logoutButton);
+    }
+
+    function logoutButton(){
+        let logoutID = document.getElementById('logoutID');
+
+        nameInput.style.display = 'inline';
+        loginID.innerText = '아이디를 입력하세요';
+
+        logoutID.remove();
+        nameInput.value = '';
+
+        songNo = 0;
+        gameSetting();
     }
 }
+
+function hunTest(){
+    let nameInput = document.getElementById('nameInput');
+    let loginID = document.querySelector('#loginID');
+
+
+    let loginValue = loginID.innerText;
+}
+
 //----------------------------------------------------------------
 
 //실행
 window.onload = function() {
     songNoChoice();
     gameSetting();
+
+    hunTest();
+
+
+    let nameInput = document.getElementById('nameInput');
+    nameInput.addEventListener('keypress', loginKey);
     
     
     let nextBtn = document.querySelector('#nextBtn');
@@ -249,9 +287,6 @@ window.onload = function() {
     
     let resultBtn = document.querySelector('#resultBtn');
     resultBtn.addEventListener('click', resultBtnClick);  
-    
-    // let answerView = document.getElementById('answerView');    
-    // answerView.addEventListener('click', answerViewText);
 
     let aviTimeBtn = document.getElementById('aviTimeBtn');
     aviTimeBtn.addEventListener('click', aviSetTime);
