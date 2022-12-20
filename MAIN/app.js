@@ -232,11 +232,11 @@ function loginKey(key){
     let inputZone = document.querySelector('.inputZone');
 
     if(key.keyCode == 13){
-        loginID.innerText = `${nameInput.value}님의 점수는 : ${point}`;
+        loginID.innerHTML = `${nameInput.value}님의 점수는 : ${point}`;
         nameInput.style.display = 'none';
 
         let logoutBtn = document.createElement('button');
-        logoutBtn.innerHTML = 'X';
+        logoutBtn.innerHTML = 'Logout';
         logoutBtn.setAttribute("id", "logoutID");
         inputZone.appendChild(logoutBtn);
         
@@ -276,7 +276,6 @@ window.onload = function() {
     gameSetting();
 
     hunTest();
-
 
     let nameInput = document.getElementById('nameInput');
     nameInput.addEventListener('keypress', loginKey);

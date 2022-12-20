@@ -55,6 +55,19 @@ nav li a:hover{
 input:focus {
     outline: 1px solid brown;
 }
+#logoutID {
+    width: auto;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+    margin-left: 30px;
+} 
+.inputZone span {
+    display: inline-block;
+    font-size: 20px;
+    color: red;
+}
 /* ////////////////////////////////////////////////////// section */
 section {
     width: 1000px;
