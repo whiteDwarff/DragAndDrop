@@ -240,9 +240,6 @@ function loginKey(key){
 
 //실행
 window.onload = function() {
-    let login = document.getElementById('Login');
-    login.addEventListener('keypress', loginKey);
-
     songNoChoice();
     gameSetting();
     
