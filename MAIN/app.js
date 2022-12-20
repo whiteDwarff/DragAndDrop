@@ -56,21 +56,16 @@ function 카드를놓았음(ev) {
     }
     this.classList.remove('overBox');
 }
-
-
-
 //============================================================
 //배열 순서 섞기
 function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
 }
-
 //문제 + 카드추가
 function 문제추가() {
     let p = document.getElementsByClassName('word')[0];
     p.innerHTML = song.bear[songNo].kor;
 }
-
 function 카드추가() {
     let wordArray = song.bear[songNo].eng.split(" ");
     shuffle(wordArray);
@@ -81,19 +76,24 @@ function 카드추가() {
         cardHTML += `<div draggable="true" class="card">
         ${word}</div>`
     }
-
     box.innerHTML = cardHTML;
 }
-
-
 //넥스트 버튼 기능
 function nextBtnClick(){
     answerCheck();
 
     //현재 문항이 모든 문제수를 넘어가게되면..
     if(songNo >= song.bear.length){
-        alert('This is the last question!');
-        songNo = 0;
+        songNo = 0; 
+
+        let submitImg = document.querySelector('.submitWindow img');
+        let submitSpan = document.querySelector('.submitWindow span');
+        let positionBox = document.getElementsByClassName('positionBox')[0];
+
+        submitSpan.innerText = '모든 문제가 종료되었습니다!';
+        submitImg.src = `../IMG/last.png`;
+        submitImg.style.width = '90px';
+        positionBox.classList.remove('none');
     }
     gameSetting();
 }
@@ -103,7 +103,6 @@ function resultBtnClick(){
     songNo = 0;
     gameSetting();
 }
-
 //정답 체크하는 함수
 function answerCheck() {
     cardText = document.querySelectorAll('.card');    
@@ -133,7 +132,7 @@ function answerCheck() {
         positionBox.classList.remove('none');
 
         point += 10;
-        loginID.innerText = `${nameInput.value}님의 점수는 : ${point}`;
+        loginID.innerHTML = `${nameInput.value}님의 점수는 : <span>${point}</span>`;
     }
     else{ 
         submitImg.src = `../IMG/x.png`;
@@ -163,7 +162,6 @@ function nextGameCard(){
     }
 
 }
-
 //현재 문항 수 / 전체 문항 수
 function remain(){
     let remainText = document.querySelector('.remain');
@@ -171,15 +169,12 @@ function remain(){
     let entire = song.bear.length;
     remainText.innerText = `${present}/${entire}`;
 }
-
-
 function gameSetting(){
     문제추가();
     카드추가();
     nextGameCard();
     remain();
 }
-
 //진행하던 게임이 있는지 확인
 function songNoChoice(){
     if(typeof localStorage.songNo == "undefined"){
@@ -194,16 +189,13 @@ function songNoChoice(){
         }
     }
 }
-
 function answerViewText(){
     let answerViewText = document.querySelector('.answerView');
     answerViewText.innerText = song.bear[songNo].eng;
 }
-
 function aviSetTime(){
     $(".avi").attr("src", `${bearAvi}?autoplay=1&mute=1&start=${song.bear[songNo].time}`);
 }
-
 //----------------------------------------------------------------
 function sideVisibleEvent() {
     let songList = document.getElementsByClassName('songList')[0];
@@ -219,20 +211,16 @@ function sideVisibleEvent() {
     songList.classList.toggle('toggleEvent')
     this.classList.toggle('songBtnEvent');
 }
-
-
 function inputEvent() {
     this.style.width = "150px";
 }
-
-
 function loginKey(key){
     let nameInput = document.getElementById('nameInput');
     let loginID = document.getElementById('loginID');
     let inputZone = document.querySelector('.inputZone');
 
     if(key.keyCode == 13){
-        loginID.innerHTML = `${nameInput.value}님의 점수는 : ${point}`;
+        loginID.innerHTML = `${nameInput.value}님의 점수는 : <span>${point}</span>`;
         nameInput.style.display = 'none';
 
         let logoutBtn = document.createElement('button');
@@ -259,23 +247,11 @@ function loginKey(key){
         gameSetting();
     }
 }
-
-function hunTest(){
-    let nameInput = document.getElementById('nameInput');
-    let loginID = document.querySelector('#loginID');
-
-
-    let loginValue = loginID.innerText;
-}
-
 //----------------------------------------------------------------
-
 //실행
 window.onload = function() {
     songNoChoice();
     gameSetting();
-
-    hunTest();
 
     let nameInput = document.getElementById('nameInput');
     nameInput.addEventListener('keypress', loginKey);
