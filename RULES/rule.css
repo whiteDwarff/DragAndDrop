@@ -99,8 +99,8 @@ section img:last-child {
     padding: 20px 0;
     /*  */
     height: 0;
-    overflow: hidden;
-    transition: 0.1s;
+    /* overflow: hidden; */
+    transition: .1s;
     opacity: 0;
     visibility: hidden;
 
@@ -160,15 +160,18 @@ footer a:hover {
     height: 226px;
     opacity: 1;
     visibility: visible;
+    overflow:hidden;
 }.blockBox2 {
     height: 831px;
     opacity: 1;
     visibility: visible;
+    overflow:hidden;
 }
 .blockBox3 {
     height: 825px;
     opacity: 1;
     visibility: visible;
+    overflow:hidden;
 }
 .none {
     display: none;
