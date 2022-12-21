@@ -1,0 +1,24 @@
+
+section{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+section img:nth-child(2){
+    margin: 0 60px 0 50px;
+}
+.bear {
+    opacity: 0; 
+    visibility: hidden;
+    overflow: hidden;
+    position: relative;
+    top: -300px;
+    transition: 1s;
+}
+.show_bear {
+    opacity: 1; 
+    visibility: visible;
+    position: relative;
+    top: 0; 
+}
