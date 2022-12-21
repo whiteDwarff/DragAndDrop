@@ -249,6 +249,7 @@ function loginKey(key){
 }
 function mouseLeaveHandler(){
     this.style.width = '30px';
+    this.value = '';
 }
 //----------------------------------------------------------------
 //실행
@@ -282,5 +283,5 @@ window.onload = function() {
 
     let input = document.querySelector('.inputZone input');
     input.addEventListener('click', inputEvent);
-    input.addEventListener('mouseleave', mouseLeaveHandler);
+    input.addEventListener('dblclick', mouseLeaveHandler);
 }
