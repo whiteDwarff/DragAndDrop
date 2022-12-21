@@ -247,6 +247,9 @@ function loginKey(key){
         gameSetting();
     }
 }
+function mouseLeaveHandler(){
+    this.style.width = '30px';
+}
 //----------------------------------------------------------------
 //실행
 window.onload = function() {
@@ -279,4 +282,5 @@ window.onload = function() {
 
     let input = document.querySelector('.inputZone input');
     input.addEventListener('click', inputEvent);
+    input.addEventListener('mouseleave', mouseLeaveHandler);
 }

@@ -2,19 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Jua&family=Single+Day&family=Sunflower:wght@700&display=swap'); 
 *{
     font-family: 'Sunflower', sans-serif;
-    color : orange;
+    /* color : orange; */
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style: none;
 }    
 body {
-    background-color: beige;
+    background-color: #f1eae4;
+    min-width: 1800px;
 }
 /* ////////////////////////////////////////////////////// header */
 header {
-    background-color: white;
+    /* background-color: white; */
     padding: 30px 0;
+    border-bottom: 2px solid black;
 }
 nav {
     line-height: 60px;
@@ -32,10 +34,11 @@ nav ul {
 }
 nav ul li a {
     padding: 30px;
+    color: black;
 }
 nav li a:hover{
-    text-decoration: underline wavy #C5C5E6;
-    text-underline-offset : 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
 }
 .inputZone {
     position: absolute;
@@ -47,13 +50,13 @@ nav li a:hover{
     height: 30px;
     width: 30px;
     border-radius: 10px;
-    border: 1px solid grey;
-    background-color: beige;
+    border: 2px solid #c53e55;
+    background-color: #f1eae4;
     padding-left: 20px;
     margin-left: 10px;
 }
 input:focus {
-    outline: 1px solid brown;
+    outline: 2px solid #c53e55;
 }
 #logoutID {
     width: auto;
@@ -74,6 +77,7 @@ section {
     margin: 0 auto;
     text-align: center;
     position: relative;
+    color: #c53e55;
 }
 .word {
     font-size: 40px;
@@ -97,6 +101,7 @@ h3 {
     justify-content: center;
     margin-top: 70px;
 }
+
 .wordZone img {
     width: 90px;    
     position: relative;
@@ -112,9 +117,10 @@ h3 {
     line-height: 50px;
     text-align: center;
     border-radius: 10px;
-    background-color: orange;
+    background-color: #5aae57;
     margin-right: 20px;
     color: white;
+    font-size: 20px;
 }
 .card:last-child {
     margin-right: 0;
@@ -127,6 +133,8 @@ button{
     cursor: pointer;
     animation-duration: .2s;
     margin-right: 20px;
+    color: #c53e55;
+
 }
 
 .plays {
@@ -230,9 +238,15 @@ aside {
 }
 /* ////////////////////////////////////////////////////// footer */
 footer {
-    background-color: white;
+    background-color: black;
+    border-top: 2px solid black;
     margin-top: 100px;
     padding: 15px 0;
+    color: grey;
+}
+footer a {
+    color: grey;
+    
 }
 footer .wrap {
     width: 960px;
@@ -251,6 +265,7 @@ footer .wrap p {
     font-weight: bold;
     text-decoration: underline;
     margin-bottom: 24px;
+    color: white
 }
 footer .wrap div:last-child {
     border: none;
@@ -260,14 +275,18 @@ footer .wrap div:last-child {
 footer a:hover {
     background-color: #d8d8e6;
 }
+
+
+
 /* ////////////////////////////////////////////////////// scriptEvent */
 .draggingCard {
     border: 1px solid;
     border-color: red;
-    background-color: red;
+    background-color: #675094;
+
 }
 .overCard {
-    background-color: orange;
+    background-color: red;
 }
 .overBox {
     border: 3px solid brown;
@@ -290,6 +309,9 @@ footer a:hover {
     opacity: 1;
     transition: 1s;
 }
+
+
+
 
 
 
