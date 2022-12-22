@@ -1,24 +1,52 @@
-
-section{
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Single+Day&family=Sunflower:wght@700&display=swap'); 
+* {
+    font-family: 'Sunflower', sans-serif;
+    text-decoration: none;
+    color: #c53e55;
+}
+.wrap {
+    width: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
 }
-section img:nth-child(2){
-    margin: 0 60px 0 50px;
+.wrap a{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
-.bear {
-    opacity: 0; 
+.wrap a .father {
+    width: 40%;
+    min-width: 150px;
+}
+.wrap a .fam {
+    width: 30%;
+     /* min-width: 90px; */
+}
+button {
+    margin-top: 40px;
+    background-color: #f1eae4;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 10px;
     visibility: hidden;
-    overflow: hidden;
-    position: relative;
-    top: -300px;
-    transition: 1s;
 }
-.show_bear {
-    opacity: 1; 
-    visibility: visible;
-    position: relative;
-    top: 0; 
+
+@media screen and (max-width: 700px) {
+    .wrap {
+        width: 100%;
+    }
+    img:first-child,
+    img:last-child {
+        display: none;
+    }
+    .fam {
+        width: 100%;
+        margin: 0 auto;
+    }
+    button {
+        visibility: visible;
+    }
 }
