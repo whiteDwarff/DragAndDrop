@@ -184,16 +184,22 @@ footer a:hover {
     * {
         transition: 0.1s;
     }
-    nav {
-        width: 100%;
+    header {
+        padding:  0;
     }
     header h1 {
         margin: 0 2rem;
-
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
-    header a {
-        font-size: 0.7rem;
+    header img {
+        width: 1rem;
+    }
+    nav {
+        width: 100%;
+    }
+    nav ul li a  {
+        font-size: 0.5rem;
+        padding: 8px;
     }
     section {
         width: 100%;
@@ -216,12 +222,17 @@ footer a:hover {
         display: none;
     }
     footer {
-        width: 100%;
+        padding: 3px 0;
+        font-size: 5px;
     }
     footer .wrap {
         width: 100%;
         display:flex;
         justify-content: center;
+    }
+    footer .wrap p{
+        font-size: 15px;
+        margin-bottom: 5px;
     }
     footer div:nth-child(2) {
         margin: 0 100px;

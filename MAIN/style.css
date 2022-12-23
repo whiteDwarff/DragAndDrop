@@ -1,5 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Jua&family=Single+Day&family=Sunflower:wght@700&display=swap'); 
+
+
 *{
     font-family: 'Sunflower', sans-serif;
     /* color : orange; */
@@ -10,12 +12,13 @@
 }    
 body {
     background-color: #f1eae4;
-    min-width: 1800px;
+    font-size: 10px;
 }
 /* ////////////////////////////////////////////////////// header */
 header {
     /* background-color: white; */
     padding: 30px 0;
+    width: 100%;
     border-bottom: 2px solid black;
 }
 nav {
@@ -34,6 +37,7 @@ nav ul {
 }
 nav ul li a {
     padding: 30px;
+    font-size: 16px;
     color: black;
 }
 nav li a:hover{
@@ -125,6 +129,9 @@ h3 {
 .card:last-child {
     margin-right: 0;
 }
+#lastAc {
+    display: none;
+}
 
 button{
     padding: 20px;
@@ -213,8 +220,9 @@ aside {
     border: thin solid grey;
     text-align: center;
     box-shadow: 2px 2px rgb(183, 183, 183);
-    position: relative;
-    bottom: 400px;
+    position: absolute;
+    top: 80%;
+    left: 40%;
     margin: 0 auto;
     z-index: 2;
 }
@@ -238,11 +246,14 @@ aside {
 }
 /* ////////////////////////////////////////////////////// footer */
 footer {
+    width: 100%;
     background-color: black;
     border-top: 2px solid black;
     margin-top: 100px;
     padding: 15px 0;
     color: grey;
+
+    
 }
 footer a {
     color: grey;
@@ -275,9 +286,6 @@ footer .wrap div:last-child {
 footer a:hover {
     background-color: #d8d8e6;
 }
-
-
-
 /* ////////////////////////////////////////////////////// scriptEvent */
 .draggingCard {
     border: 1px solid;
@@ -313,5 +321,78 @@ footer a:hover {
 
 
 
+@media screen and (max-width: 500px) {
+    header {
+        padding:  0;
+        width: 100%;
+    }
+    header h1 {
+        margin: 0 2rem;
+        font-size: 1rem;
+    }
+    header img {
+        width: 1rem;
+    }
+    nav {
+        width: 100%;
+        position: none;
+    }
+    nav ul li a {
+        font-size: 0.5rem;
+        padding: 8px;
+    }
+    .inputZone{
+        display: none;
+    }
+    section {
+        width: 100%;
+    }
+    embed {
+        width: 80%;
 
+    }
+    article:nth-child(2) {
+        display: none;
+    }
+    .btnBox {
+        display: none;
+    }
+    #lastAc {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #lastAc span {
+        font-size: 1rem;
+    }
+    #lastAc img {
+        width: 4rem;
+        margin: 0 2rem;
+    }
 
+    aside {
+        display: none;
+    }
+    footer {
+        padding: 3px 0;
+        position: absolute;
+        bottom: 0;
+        font-size: 5px;
+    }
+    footer .wrap {
+        width: 100%;
+        display:flex;
+        justify-content: center;
+    }
+    footer .wrap p{
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+    footer div:nth-child(2) {
+        margin: 0 100px;
+    }
+    footer div:nth-child(3),
+    footer div:nth-child(4) {
+        display:none;
+    }
+}
