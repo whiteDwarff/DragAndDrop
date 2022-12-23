@@ -375,8 +375,6 @@ footer a:hover {
     }
     footer {
         padding: 3px 0;
-        position: absolute;
-        bottom: 0;
         font-size: 5px;
     }
     footer .wrap {
